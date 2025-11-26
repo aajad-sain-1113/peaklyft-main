@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 interface Brand {
   name: string;
@@ -14,33 +15,33 @@ interface BrandSliderProps {
 }
 
 const BrandSlider: React.FC<BrandSliderProps> = ({ title, brands }) => {
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [isTransitioning, setIsTransitioning] = useState<boolean>(true);
-  const [isClient, setIsClient] = useState<boolean>(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const [windowWidth, setWindowWidth] = useState(768);
   const timeoutRef = useRef<number | null>(null);
-  const [windowWidth, setWindowWidth] = useState<number>(768);
   const pathname = usePathname();
   const isHome = pathname === "/";
 
+  const handleResize = useCallback(() => {
+    setWindowWidth(window.innerWidth);
+  }, []);
+
   useEffect(() => {
-    setIsClient(true);
-
-    const handleResize = () => setWindowWidth(window.innerWidth);
-
-    window.addEventListener("resize", handleResize);
     handleResize();
+    window.addEventListener("resize", handleResize);
 
     const interval = setInterval(() => {
       setIsTransitioning(true);
-      setCurrentIndex((prevIndex) => prevIndex + 1);
+      setCurrentIndex((prev) => prev + 1);
     }, 3000);
 
     return () => {
       clearInterval(interval);
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [handleResize]);
 
+  // ---- INFINITE LOOP LOGIC ----
   useEffect(() => {
     if (currentIndex === brands.length) {
       timeoutRef.current = window.setTimeout(() => {
@@ -50,35 +51,38 @@ const BrandSlider: React.FC<BrandSliderProps> = ({ title, brands }) => {
     }
 
     return () => {
-      if (timeoutRef.current !== null) {
-        clearTimeout(timeoutRef.current);
-      }
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
   }, [currentIndex, brands.length]);
 
-  const renderBrand = (brand: Brand, index: number | string) => (
+  // ---- BRAND BOX ----
+  const renderBrand = (brand: Brand, key: number | string) => (
     <div
-      key={index}
+      key={key}
       className="shrink md:w-[220px] w-full h-[60px] border-l border-black flex items-center justify-center bg-card px-2.5"
     >
-      <img
+      <Image
         src={brand.logo}
         alt={brand.name}
+        width={201}
+        height={58}
         className="w-[201px] h-[58.53px] object-contain"
         onError={(e) => {
           e.currentTarget.style.display = "none";
-          e.currentTarget.parentElement!.innerHTML = `<span class="text-card-foreground font-bold text-xl">${brand.name}</span>`;
+          e.currentTarget.parentElement!.innerHTML = `<span class='text-card-foreground font-bold text-xl'>${brand.name}</span>`;
         }}
       />
     </div>
   );
 
+  const offset = currentIndex * (windowWidth < 768 ? 164 : 244);
+
   return (
     <div
       className={`w-full max-w-[1188px] mx-auto bg-main shadow-[0px_13.35px_40.04px_0px_rgba(0,0,0,0.16)]
-    pt-[30px] pb-[25px] px-[20px] md:px-[40px] overflow-hidden rounded-[14px] mt-[30px]
-    ${isHome ? "h-auto" : "h-[249px]"}
-  `}
+        pt-[30px] pb-[25px] px-5 md:px-10 overflow-hidden rounded-[14px] mt-[30px]
+        ${isHome ? "h-auto" : "h-[249px]"}
+      `}
     >
       <div className="max-w-[1188px] mx-auto">
         <h2 className="text-[20px] md:text-[28px] leading-[1.5em] font-bold text-center text-foreground mb-5">
@@ -89,22 +93,15 @@ const BrandSlider: React.FC<BrandSliderProps> = ({ title, brands }) => {
           <div className="overflow-hidden bg-main">
             <div
               className={`flex gap-4 md:gap-6 ${
-                isTransitioning
-                  ? "transition-transform duration-700 ease-in-out"
-                  : ""
+                isTransitioning ? "transition-transform duration-700 ease-in-out" : ""
               }`}
               style={{
-                transform: isClient
-                  ? `translateX(-${
-                      currentIndex * (windowWidth < 768 ? 164 : 244)
-                    }px)`
-                  : "none",
+                transform: `translateX(-${offset}px)`,
                 width: "max-content",
-                visibility: isClient ? "visible" : "hidden",
               }}
             >
-              {brands.map((brand, index) => renderBrand(brand, index))}
-              {brands.map((brand, index) => renderBrand(brand, `dup-${index}`))}
+              {brands.map((b, i) => renderBrand(b, i))}
+              {brands.map((b, i) => renderBrand(b, `dup-${i}`))}
             </div>
           </div>
 

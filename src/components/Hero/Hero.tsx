@@ -51,15 +51,15 @@ const Hero: React.FC<HeroProps> = ({ heroData, brandData }) => {
       }}
     >
       <div className={`container flex ${heroData.type === "simple" ? "flex-col sm:flex-row" : "flex-col-reverse sm:flex-row"} justify-between items-center pt-5`}>
-        <div className="w-full flex flex-col sm:text-left text-left sm:gap-[10px] mb-[30px]">
+        <div className="w-full flex flex-col sm:text-left text-left sm:gap-2.5 mt-[70px] mb-[30px]">
           {heroData.type === "simple" && (
-            <p className="text-primary merri sm:text-[24px] text-[20px] font-bold italic sm:leading-[30px]">
+            <p className="text-primary font-merriweather sm:text-[24px] text-[20px] font-bold italic sm:leading-[30px]">
               {heroData.badge}
             </p>
           )}
 
           {heroData.type === "complex" && (
-            <p className="text-[#4A4848] font-poppins sm:text-[14px] text-[12px] font-medium italic underline sm:leading-[20px]">
+            <p className="text-[#4A4848] font-poppins sm:text-[14px] text-[12px] font-medium italic underline sm:leading-5">
               {heroData.topTagline}
             </p>
           )}
@@ -108,7 +108,7 @@ const Hero: React.FC<HeroProps> = ({ heroData, brandData }) => {
           </div>
         </div>
 
-        <div className="flex justify-center w-full md:pl-[24px] pt-[10.5px]">
+        <div className="flex justify-center w-full md:pl-1.5 pt-[10.5px]">
           <Image
             src={
               heroData.type === "complex" ? heroData.heroImage : heroData.image

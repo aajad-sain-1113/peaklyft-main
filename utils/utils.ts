@@ -163,23 +163,69 @@ export const whatsNewDefaultContent = {
 export const whatsNewDefaultData = [
   {
     image: "/craft.png",
-    tag: "News",
-    title: "AntWalk featured in Economic Times",
-    desc: "AntWalk announces capability academy revolution.",
+    tag: "Uncategorized",
+    title: "Key Skills and Capabilities Every DevOps Professional and Business Will Need in 2025",
+    desc: "As businesses accelerate their digital transformation, the DevOps landscape is evolving faster than ever before.",
     link: "/news/et",
   },
   {
     image: "/macbook.png",
-    tag: "Blog",
-    title: "How Capability Academies Work",
-    desc: "Deep dive into strategic learning transformation.",
+    tag: "BFSI",
+    title: "Transformed Collaboration and Customer Experience at a well-known Small Finance Bank",
+    desc: "Frontline Operations Associate Excellence Program",
     link: "/news/blog",
   },
   {
     image: "/craft.png",
-    tag: "Event",
-    title: "Leadership Summit 2024",
-    desc: "AntWalk hosts industry leaders for capability talks.",
+    tag: "Uncategorized",
+    title: "Key Skills and Capabilities Every DevOps Professional and Business Will Need in 2025",
+    desc: "As businesses accelerate their digital transformation, the DevOps landscape is evolving faster than ever before.",
+    link: "/news/event",
+  },
+];
+
+
+
+
+
+
+export const whatsNewDefaultContent2 = {
+  title: {
+    normalStart: "What's new at",
+    highlight: "AntWalk?",
+    normalEnd: "",
+  },
+  subtitle: "Stay Connected, Stay Informed",
+  description: "AntWalk in news, Blogs, Case Studies, Events",
+};
+
+export const whatsNewDefaultData2 = [
+  {
+    image: "/craft.png",
+    tag: "Uncategorized",
+    title: "Key Skills and Capabilities Every DevOps Professional and Business Will Need in 2025",
+    desc: "As businesses accelerate their digital transformation, the DevOps landscape is evolving faster than ever before.",
+    link: "/news/et",
+  },
+  {
+    image: "/macbook.png",
+    tag: "BFSI",
+    title: "Transformed Collaboration and Customer Experience at a well-known Small Finance Bank",
+    desc: "In today’s dynamic SaaS and X-Tech landscape, organizations face mounting pressure to innovate, scale, and",
+    link: "/news/blog",
+  },
+  {
+    image: "/craft.png",
+    tag: "Uncategorized",
+    title: "Key Skills and Capabilities Every DevOps Professional and Business Will Need in 2025",
+    desc: "As businesses accelerate their digital transformation, the DevOps landscape is evolving faster than ever before.",
+    link: "/news/event",
+  },
+    {
+    image: "/craft.png",
+    tag: "Uncategorized",
+    title: "Key Skills and Capabilities Every DevOps Professional and Business Will Need in 2025",
+    desc: "As businesses accelerate their digital transformation, the DevOps landscape is evolving faster than ever before.",
     link: "/news/event",
   },
 ];

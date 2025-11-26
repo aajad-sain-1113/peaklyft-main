@@ -70,10 +70,10 @@ const AcademyTabs: React.FC<Props> = ({ title, tabs, image }) => {
         <div
           className="w-full relative overflow-hidden flex flex-col md:flex-row p-6 sm:p-8 md:p-10"
           style={{
-            background: "url('/carouselbg.png') center center/cover no-repeat",
+            background: "url('/3D-1.jpg') center center/cover no-repeat",
           }}
         >
-          <div className="absolute inset-0 bg-[#5162DA]/90 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-[#000000]/60 pointer-events-none"></div>
           
           <div className="relative z-10 w-full md:w-1/2 text-white md:pr-6">
             <h3 className="text-2xl sm:text-3xl md:text-3xl font-semibold mb-3 sm:mb-4 md:mb-4">

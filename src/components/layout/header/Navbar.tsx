@@ -12,9 +12,9 @@ const Navbar = () => {
             Register Now
           </Link>
         </p>
-        <div className="flex items-center gap-1 font-poppins text-[15px] font-normal leading-[25px] text-main">
-          <Headset className="h-4 w-4" />
-          <span>Support</span>
+        <div className="flex items-center gap-1 font-poppins cursor-pointer text-[15px] font-normal leading-[25px] text-main hover:text-primary">
+          <Headset className="h-4 w-4"/>
+          <span className="hover:text-white">Support</span>
         </div>
       </div>
     </nav>

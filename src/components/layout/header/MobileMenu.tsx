@@ -21,7 +21,7 @@ const MobileMenu = ({
   return (
     <div className="fixed inset-0 bg-white z-50 md:hidden overflow-y-auto">
       <div className="flex items-center justify-between p-5 border-b">
-        <Image src="/logo.png" alt="Logo" width={167} height={57} />
+        <Image src="/peaklyft.svg" alt="Logo" width={167} height={57} />
 
         <button onClick={() => setOpen(false)} className="p-2">
           <X size={15} />

@@ -28,7 +28,7 @@ export default function HomePage() {
       <Methodology />
       <ComparisonTable data={comparisonData} />
       <Trust />
-      <WhatsNew content={whatsNewDefaultContent} data={whatsNewDefaultData}  />
+      <WhatsNew content={whatsNewDefaultContent} data={whatsNewDefaultData} showHeader={true} />
     </div>
   );
 }
