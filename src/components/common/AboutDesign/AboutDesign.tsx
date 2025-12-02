@@ -71,22 +71,22 @@ export default function AboutDesign({
   className="relative h-[75vh] w-full bg-cover bg-left bg-no-repeat flex items-center"
   style={{ backgroundImage: "url('/backgroundimage.png')" }}
 >
-  <div className="absolute inset-0 bg-blue-600/60"></div>
+  <div className="absolute inset-0 bg-secondary/70"></div>
 
   <div className="relative z-10 max-w-4xl text-white pl-10 md:pl-20">
-    <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+    <h1 className="text-4xl md:text-4xl font-bold leading-tight merri">
       {hero.title}
     </h1>
 
-    <p className="text-2xl mt-6 font-semibold">
+    <p className="text-2xl mt-4 font-semibold">
       {hero.subtitle}
     </p>
 
-    <p className="mt-6 text-lg opacity-90 leading-relaxed max-w-2xl">
+    <p className="mt-1 text-lg opacity-90 leading-relaxed max-w-2xl">
       {hero.description}
     </p>
 
-    <button className="mt-8 bg-orange-500 px-8 py-3 rounded-full text-white font-semibold text-lg shadow-lg hover:bg-orange-600 transition">
+    <button className="mt-8 bg-primary px-8 py-3 rounded-[4px] text-white font-semibold text-lg shadow-lg hover:bg-primary transition">
       {hero.buttonText}
     </button>
   </div>
@@ -214,16 +214,17 @@ export default function AboutDesign({
           </button>
 
       
-          <div className="flex justify-center mt-6 space-x-3">
-            {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-              <div
-                key={i}
-                onClick={() => setIndex(i)}
-                className={`h-3 w-3 rounded-full cursor-pointer transition-all 
-                  ${index === i ? "bg-orange-500 scale-125" : "bg-gray-300"}`}
-              />
-            ))}
-          </div>
+         <div className="flex justify-center mt-6 space-x-3">
+  {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+    <div
+      key={i}
+      onClick={() => setIndex(i)}
+      className={`h-4 w-4 rounded-full cursor-pointer transition-all duration-600
+        ${index === i ? "bg-orange-500 scale-110" : "bg-black"}`}
+    />
+  ))}
+</div>
+
         </div>
       </div>
     
