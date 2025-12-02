@@ -31,9 +31,9 @@ export const headerMenu = [
     type: "mega",
     sections: [
       {
-        title: "Sales Academy",
+        title: "IT Services",
         description: "Structured capability-building programs.",
-        href: "/industries/learning-suite",
+        href: "/industries/saas-it-services",
       },
       {
         title: "Customer Success Academy",
