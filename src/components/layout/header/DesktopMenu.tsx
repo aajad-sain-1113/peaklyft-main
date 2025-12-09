@@ -1,4 +1,4 @@
-import { headerMenu } from "@/utils/Header";
+import { headerMenu } from "@/utils/header"; 
 import MenuItem from "./MenuItem";
 
 const DesktopMenu = () => {

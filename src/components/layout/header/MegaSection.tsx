@@ -1,18 +1,27 @@
 import Link from "next/link";
+import Image from "next/image";
+import type { MegaItem } from "@/utils/header";
 
-const MegaSection = ({ data }: any) => {
+const MegaSection = ({ item }: { item: MegaItem }) => {
   return (
-    <Link
-      href={data.href}
-      className="w-1/3 hover:bg-main p-3 rounded-lg block"
-    >
-      <h3 className="font-semibold text-[16px] text-foreground mb-1">
-        {data.title}
-      </h3>
+    <Link href={item.href} className="flex items-start gap-4 group">
+      <Image
+        src={`/icons/${item.icon}.png`}
+        alt={item.title}
+        width={36}
+        height={36}
+        className="opacity-90 group-hover:opacity-100 transition mt-1"
+      />
 
-      <p className="text-[14px] text-foreground leading-5">
-        {data.description}
-      </p>
+      <div>
+        <h3 className="text-[15px] font-semibold text-[#1A1A1A] leading-tight">
+          {item.title}
+        </h3>
+
+        <p className="text-[15px] text-[#555] leading-[22px] mt-1 w-[280px]">
+          {item.description}
+        </p>
+      </div>
     </Link>
   );
 };

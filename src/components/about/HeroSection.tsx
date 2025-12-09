@@ -1,27 +1,52 @@
-export default function HeroSection({ hero }) {
+"use client";
+
+import React from "react";
+
+interface HeroData {
+  title: string;
+  subtitle: string;
+  description: string;
+  buttonText: string;
+  backgroundImage: string;
+}
+
+interface HeroSectionProps {
+  hero: HeroData;
+}
+
+export default function HeroSection({ hero }: HeroSectionProps) {
   return (
     <section
-className="relative h-[75vh] w-full bg-cover bg-left bg-no-repeat pt-8 pl-8 flex items-center"
+      className="
+        relative 
+        h-[80vh] md:h-[80vh] 
+        w-full 
+        bg-cover bg-center md:bg-left bg-no-repeat
+        flex items-center 
+        px-6 md:px-16
+      "
       style={{ backgroundImage: `url(${hero.backgroundImage})` }}
     >
+      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-secondary/70"></div>
 
-      <div className="relative z-10 max-w-4xl text-white pl-10 md:pl-20 ">
-        <h1 className="text-4xl md:text-4xl font-bold leading-tight merri">
+      {/* Content */}
+      <div className="relative z-10 max-w-3xl text-white">
+        <h1 className="text-3xl md:text-5xl font-bold leading-tight merri">
           {hero.title}
         </h1>
 
-        <p className="text-2xl mt-4 font-semibold merri">{hero.subtitle}</p>
+        <p className="text-xl md:text-2xl mt-3 font-semibold merri">
+          {hero.subtitle}
+        </p>
 
-        <p className="mt-1 text-lg opacity-90 
-        leading-relaxed max-w-2xl merri">
+        <p className="mt-3 text-base md:text-lg opacity-90 leading-relaxed max-w-xl merri">
           {hero.description}
         </p>
 
-        <button className="mt-8 bg-primary px-8 py-3 rounded-[4px] text-white font-semibold text-lg shadow-lg hover:bg-primary transition">
+        <button className="mt-6 bg-primary px-6 md:px-10 py-3 rounded-lg text-white font-semibold text-base md:text-lg shadow-lg hover:bg-primary/90 transition">
           {hero.buttonText}
         </button>
-    
       </div>
     </section>
   );

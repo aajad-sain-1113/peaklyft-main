@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Button } from "../../ui/button";
-
+import { Button } from "../../ui/button";   
 interface Card {
   id: number;
   title: string;
@@ -17,6 +16,7 @@ interface SectionProps {
   subtitle: string;
   taglines: string[];
   desc: string;
+  points?: string[];   
   buttonText: string;
   cards: Card[];
   variant?: "left" | "right";
@@ -27,6 +27,7 @@ export default function OnboardingSection({
   subtitle,
   taglines,
   desc,
+  points,
   cards,
   buttonText,
   variant = "left",
@@ -46,7 +47,6 @@ export default function OnboardingSection({
   }, [maxIndex]);
 
   const goToSlide = (i: number) => setIndex(i);
-
   const isRight = variant === "right";
 
   return (
@@ -56,6 +56,7 @@ export default function OnboardingSection({
         ${isRight ? "md:flex-row-reverse" : ""}
       `}
     >
+      {/* LEFT SIDE - Cards */}
       <div className="relative lg:w-[610px] md:w-1/2 w-full overflow-hidden">
         <motion.div
           animate={{ x: -index * 50 + "%" }}
@@ -63,22 +64,14 @@ export default function OnboardingSection({
           className="flex"
         >
           {cards.map((card) => (
-            <div
-              key={card.id}
-              className="
-          w-full
-          md:w-1/2
-          shrink-0 
-          p-4
-        "
-            >
+            <div key={card.id} className="w-full md:w-1/2 shrink-0 p-4">
               <div className="w-[285px] h-[300px] bg-white rounded-[20px] shadow-md border-2 border-secondary p-5 mx-auto">
                 <Image
                   src={card.image}
                   alt={card.title}
                   width={500}
                   height={400}
-                  className="rounded-[20px] md:w-[500px] md:[400]"
+                  className="rounded-[15px]"
                 />
                 <h3 className="font-base font-semibold mt-4">{card.title}</h3>
               </div>
@@ -86,13 +79,13 @@ export default function OnboardingSection({
           ))}
         </motion.div>
 
+        {/* BUTTON + SLIDER DOTS */}
         <div className="flex justify-between items-center">
           <div className="mt-6">
             <Button className="px-6 py-5 bg-primary rounded-[2px]">
               {buttonText}
             </Button>
           </div>
-
           <div className="flex gap-2 mt-4 justify-end">
             {Array.from({ length: maxIndex + 1 }).map((_, i) => (
               <button
@@ -107,6 +100,7 @@ export default function OnboardingSection({
         </div>
       </div>
 
+      {/* RIGHT SIDE - TEXT */}
       <div className="md:w-1/2 flex flex-col justify-center">
         <p className="text-blue-600 font-medium text-lg">{subtitle}</p>
 
@@ -114,6 +108,7 @@ export default function OnboardingSection({
           {title}
         </h2>
 
+        {/* TAGLINES */}
         <div className="flex gap-3 mt-6 flex-wrap">
           {taglines.map((item) => (
             <div
@@ -125,7 +120,19 @@ export default function OnboardingSection({
           ))}
         </div>
 
-        <p className="mt-6 text-xl leading-relaxed">{desc}</p>
+        {desc && <p className="mt-6 text-xl leading-relaxed">{desc}</p>}
+
+        {/* BULLET POINTS (BLUE DIAMOND) */}
+        {points && (
+          <div className="mt-6 space-y-4">
+            {points.map((point, index) => (
+              <div key={index} className="flex items-start gap-4">
+                <span className="w-4 h-4 bg-blue-600 rotate-45 block mt-1"></span>
+                <p className="text-lg leading-relaxed">{point}</p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

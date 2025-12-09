@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { X, ChevronDown, ChevronUp, ArrowLeft } from "lucide-react";
-import { headerMenu } from "@/utils/Header";
+import { headerMenu, MenuItemType, MegaSectionType, MegaItem } from "@/utils/header";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -22,7 +22,6 @@ const MobileMenu = ({
     <div className="fixed inset-0 bg-white z-50 md:hidden overflow-y-auto">
       <div className="flex items-center justify-between p-5 border-b">
         <Image src="/peaklyft.svg" alt="Logo" width={167} height={57} />
-
         <button onClick={() => setOpen(false)} className="p-2">
           <X size={15} />
         </button>
@@ -39,76 +38,60 @@ const MobileMenu = ({
       </button>
 
       <div className="px-4 py-2">
-        {headerMenu.map((item) => {
+        {headerMenu.map((item: MenuItemType) => {
           const isMainOpen = activeMain === item.label;
 
           return (
             <div key={item.label} className="border-b py-3">
               <div
-                onClick={() => {
-                  if (item.type === "mega") {
-                    setActiveMain(isMainOpen ? null : item.label);
-                  }
-                }}
+                onClick={() => item.type === "mega" && setActiveMain(isMainOpen ? null : item.label)}
                 className="flex items-center justify-between text-[12px] font-semibold"
               >
                 {item.label}
 
                 {item.type === "mega" &&
-                  (isMainOpen ? (
-                    <ChevronUp size={12} />
-                  ) : (
-                    <ChevronDown size={12} />
-                  ))}
+                  (isMainOpen ? <ChevronUp size={12} /> : <ChevronDown size={12} />)}
               </div>
 
-              <div
-                className={`overflow-hidden transition-all duration-300 ml-2 ${
-                  isMainOpen
-                    ? "max-h-[1000px] opacity-100 mt-2"
-                    : "max-h-0 opacity-0 mt-0"
-                }`}
-              >
-                {item.sections?.map((section: any) => {
-                  const isSubOpen = activeSub === section.title;
+              {item.sections && (
+                <div
+                  className={`overflow-hidden transition-all ml-2 ${
+                    isMainOpen ? "max-h-[800px] opacity-100 mt-2" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  {item.sections.map((section: MegaSectionType) => {
+                    const isSubOpen = activeSub === section.title;
 
-                  return (
-                    <div key={section.title} className="mb-2">
-                      <div
-                        onClick={() =>
-                          setActiveSub(isSubOpen ? null : section.title)
-                        }
-                        className="flex items-center justify-between py-2 text-[16px] font-medium"
-                      >
-                        {section.title}
-                        {isSubOpen ? (
-                          <ChevronUp size={12} />
-                        ) : (
-                          <ChevronDown size={12} />
-                        )}
-                      </div>
+                    return (
+                      <div key={section.title} className="mb-2">
+                        <div
+                          onClick={() => setActiveSub(isSubOpen ? null : section.title ?? "")}
+                          className="flex items-center justify-between py-2 text-[16px] font-medium"
+                        >
+                          {section.title}
+                          {isSubOpen ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
+                        </div>
 
-                      <div
-                        className={`overflow-hidden border-l pl-3 transition-all duration-300 ${
-                          isSubOpen
-                            ? "max-h-[500px] opacity-100"
-                            : "max-h-0 opacity-0"
-                        }`}
-                      >
-                        {section.items?.map((i: any) => (
-                          <Link
-                            key={i}
-                            href="#"
-                            className="block py-1 text-[14px] text-gray-700"
-                          >
-                            {i}
-                          </Link>
-                        ))}
+                        <div
+                          className={`overflow-hidden border-l pl-3 transition-all ${
+                            isSubOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                          }`}
+                        >
+                          {section.items.map((i: MegaItem) => (
+                            <Link
+                              key={i.href}
+                              href={i.href}
+                              className="block py-1 text-[14px] text-gray-700"
+                            >
+                              {i.title}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
-              </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           );
         })}

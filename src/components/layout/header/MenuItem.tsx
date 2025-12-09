@@ -1,20 +1,32 @@
-import Link from "next/link";
 import MegaDropdown from "./MegaDropdown";
+import Link from "next/link";
+import { MenuItemType } from "@/utils/header";
 
-const MenuItem = ({ item }: any) => {
-  return (
-    <div className="relative group">
-      <Link
-        href={item.href || "#"}
-        className="font-poppins text-[15px] font-medium text-black px-2 py-3 sh hover:text-secondary transition-all"
-      >
+const MenuItem = ({ item }: { item: MenuItemType }) => {
+  // 🔗 Normal link
+  if (item.type === "link") {
+    return (
+      <Link href={item.href!} className="py-4 px-2">
         {item.label}
       </Link>
-      {item.type === "mega" && (
-        <MegaDropdown sections={item.sections} />
-      )}
-    </div>
-  );
+    );
+  }
+
+  // 🧩 Mega menu
+  if (item.type === "mega") {
+    return (
+      <div className="relative group">
+        <button className="py-4 px-2">{item.label}</button>
+
+        <MegaDropdown
+          sections={item.sections || []}
+          image={item.image}     // ⭐ SAFE & TYPED!
+        />
+      </div>
+    );
+  }
+
+  return null;
 };
 
 export default MenuItem;
