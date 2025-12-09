@@ -12,7 +12,7 @@ export const heroSections = {
       line2End: "",
     },
     description:
-      'AntWalk <b>Business Capability Platform</b> empowers your workforce to achieve your business goals by driving organization-wide capability building through end-to-end Capability Academy​',
+      ' Peaklyft <b>Business Capability Platform</b> empowers your workforce to achieve your business goals by driving organization-wide capability building through end-to-end Capability Academy​',
     button: { label: "Schedule a Demo!" },
     heroImage: "/hero.png",
   } as const,
@@ -51,7 +51,7 @@ export const heroSections = {
 
   "sales-academy": {
     type: "simple",
-    badge: "AntWalk Sales Academy",
+    badge: " Peaklyft Sales Academy",
     simpleTitle: "Close More Deals, Faster!",
     description:
       "Transform your salesforce with a dedicated Sales Capability Academy that builds skills, drives consistency, and accelerates revenue growth.",
@@ -61,7 +61,7 @@ export const heroSections = {
 
   "marketing-academy": {
     type: "simple",
-    badge: "AntWalk Marketing Academy",
+    badge: " Peaklyft Marketing Academy",
     simpleTitle: "Grow Your Brand, Smarter!",
     description:
       "Boost your marketing performance with structured capability building...",
@@ -112,3 +112,69 @@ export const brandSections = {
   },
 };
 
+
+export const heroSectionsData = {
+  default: {
+    type: "complex",
+    topTagline: "Built by McKinsey Alums, Powered by Industry Leaders",
+    title: {
+      line1Start: "Build",
+      highlight1: "Capability Academies",
+      line1End: "",
+      line2Start: "to achieve",
+      highlight2: "Strategic Objectives",
+      line2End: "",
+    },
+    
+  } as const,
+
+  growth: {
+    type: "complex",
+    topTagline: "Accelerate Organizational Growth",
+    title: {
+      line1Start: "Elevate Your",
+      highlight1: "Growth Teams",
+      line1End: "",
+      line2Start: "with",
+      highlight2: "High-Impact Academies",
+      line2End: "",
+    },
+    description: "Specialized capability academies designed...",
+    button: { label: "Explore Growth" },
+    heroImage: "/growth-hero.png",
+  } as const,
+
+  people: {
+    type: "complex",
+    topTagline: "Transform Your Workforce",
+    title: {
+      line1Start: "Build Strong",
+      highlight1: "People Leaders",
+      line1End: "",
+      line2Start: "with",
+      highlight2: "Leadership Academies",
+      line2End: "",
+    },
+    description: "Leadership, talent and HR academies built...",
+    button: { label: "Explore People" },
+    heroImage: "/people-hero.png",
+  } as const,
+
+  blog: {
+    type: "simple",
+    badge: "Blog",
+    simpleTitle: "Explore, Learn, and stay </br> informed with our blog section",
+    description: "",
+    image: "https://www.antwalk.com/wp-content/uploads/2024/05/9084-copy-1.png",
+  } as const,
+
+  "marketing-academy": {
+    type: "simple",
+    badge: " Peaklyft Marketing Academy",
+    simpleTitle: "Grow Your Brand, Smarter!",
+    description:
+      "Boost your marketing performance with structured capability building...",
+    buttonText: "Talk to Experts",
+    image: "/images/marketing-academy.png",
+  } as const,
+} as const;

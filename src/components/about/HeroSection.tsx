@@ -1,0 +1,53 @@
+"use client";
+
+import React from "react";
+
+interface HeroData {
+  title: string;
+  subtitle: string;
+  description: string;
+  buttonText: string;
+  backgroundImage: string;
+}
+
+interface HeroSectionProps {
+  hero: HeroData;
+}
+
+export default function HeroSection({ hero }: HeroSectionProps) {
+  return (
+    <section
+      className="
+        relative 
+        h-[80vh] md:h-[80vh] 
+        w-full 
+        bg-cover bg-center md:bg-left bg-no-repeat
+        flex items-center 
+        px-6 md:px-16
+      "
+      style={{ backgroundImage: `url(${hero.backgroundImage})` }}
+    >
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-secondary/70"></div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-3xl text-white">
+        <h1 className="text-3xl md:text-5xl font-bold leading-tight merri">
+          {hero.title}
+        </h1>
+
+        <p className="text-xl md:text-2xl mt-3 font-semibold merri">
+          {hero.subtitle}
+        </p>
+
+        <p className="mt-3 text-base md:text-lg opacity-90 leading-relaxed max-w-xl merri">
+          {hero.description}
+        </p>
+
+        <button className="mt-6 bg-primary px-6 md:px-10 py-3 rounded-lg text-white font-semibold text-base md:text-lg shadow-lg hover:bg-primary/90 transition">
+          {hero.buttonText}
+        </button>
+      </div>
+    </section>
+  );
+}

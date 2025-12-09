@@ -1,5 +1,6 @@
 "use client";
 
+
 import Image from "next/image";
 import { Button } from "../ui/button";
 import BrandSlider from "../common/Slider";
@@ -19,7 +20,6 @@ interface ComplexHero {
   button: { label: string };
   heroImage: string;
 }
-
 interface SimpleHero {
   type: "simple";
   badge: string;
@@ -37,93 +37,138 @@ interface HeroProps {
     title: string;
     brands: { name: string; logo: string }[];
   };
+  variant?: "default" | "blog";
 }
 
-const Hero: React.FC<HeroProps> = ({ heroData, brandData }) => {
+const Hero: React.FC<HeroProps> = ({ heroData, brandData, variant = "default" }) => {
   return (
     <section
-      className="w-full px-2.5"
+      className="w-full px-4"
       style={{
         background:
-          heroData.type === "simple"
+          variant === "blog"
+            ? "none"
+            : heroData.type === "simple"
             ? "none"
             : "radial-gradient(at top right, #4E5FF545 0%, #DBDFFF00 10%)",
       }}
     >
-      <div className={`container flex ${heroData.type === "simple" ? "flex-col sm:flex-row" : "flex-col-reverse sm:flex-row"} justify-between items-center pt-5`}>
-        <div className="w-full flex flex-col sm:text-left text-left sm:gap-2.5 mt-[70px] mb-[30px]">
-          {heroData.type === "simple" && (
-            <p className="text-primary font-merriweather sm:text-[24px] text-[20px] font-bold italic sm:leading-[30px]">
-              {heroData.badge}
-            </p>
-          )}
+      {/* ⭐ BLOG HERO — FULLY RESPONSIVE */}
+      {variant === "blog" && (
+        <div className="max-w-[1280px] mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-5 py-16">
 
-          {heroData.type === "complex" && (
-            <p className="text-[#4A4848] font-poppins sm:text-[14px] text-[12px] font-medium italic underline sm:leading-5">
-              {heroData.topTagline}
-            </p>
-          )}
-
-          {heroData.type === "complex" ? (
-            <h1 className="text-[#1C1C1C] font-poppins sm:text-[40px] text-[26px] font-semibold sm:leading-[60px]">
-              {heroData.title.line1Start}{" "}
-              <span className="text-secondary">
-                {heroData.title.highlight1}
-              </span>{" "}
-              {heroData.title.line1End}
-              <br />
-              {heroData.title.line2Start}{" "}
-              <span className="text-secondary">
-                {heroData.title.highlight2}
-              </span>{" "}
-              {heroData.title.line2End}
+          {/* LEFT TEXT */}
+          <div className="w-full md:w-1/2 text-left">
+            <h1
+              className="
+                font-poppins font-bold
+                text-[26px] sm:text-[32px] md:text-[38px]
+                leading-[34px] sm:leading-[42px] md:leading-[48px]
+                max-w-[520px]
+              "
+            >
+              Explore, Learn, and stay informed <br className="hidden sm:block" />
+              with our blog section
             </h1>
-          ) : (
-            <h1 className="text-[#1C1C1C] font-poppins text-[45px] font-semibold sm:leading-[60px]">
-              {heroData.simpleTitle}
-            </h1>
-          )}
-          {heroData.type === "simple" && (
-            <p
-              className="text-[#4A4848] font-poppins text-[20px] font-medium leading-[27px]"
-              dangerouslySetInnerHTML={{ __html: heroData.description }}
-            />
-          )}
-          {heroData.type === "complex" && (
-            <p
-              className="text-[#4A4848] font-poppins sm:text-[18px] text-[14px] font-medium leading-[30px]"
-              dangerouslySetInnerHTML={{ __html: heroData.description }}
-            />
-          )}
+          </div>
 
-          <div className="mt-5">
+          {/* RIGHT IMAGE */}
+<div className="w-full md:w-1/2 flex justify-center md:justify-end">
+  <Image
+    src={heroData.image}
+    alt="blog hero"
+    width={450}
+    height={350}
+    className="w-[240px] sm:w-[330px] md:w-[450px] h-auto object-contain"
+  />
+</div>
+
+        </div>
+      )}
+
+      {/* ⭐ DEFAULT / COMPLEX HERO */}
+      {variant !== "blog" && (
+        <div className="max-w-[1280px] mx-auto flex flex-col sm:flex-row justify-between items-center pt-16 gap-12">
+
+          {/* LEFT SIDE */}
+          <div className="w-full sm:w-[52%] text-left">
+
+            {/* Tagline */}
+            {heroData.type === "complex" && (
+              <p className="text-[#3D3D3D] underline text-[15px] mb-3 leading-tight">
+                {heroData.topTagline}
+              </p>
+            )}
+
+            {/* Heading */}
+            {heroData.type === "complex" ? (
+              <>
+                <h1
+                  className="
+                    font-poppins text-black font-bold
+                    text-[32px] sm:text-[42px]
+                    leading-[42px] sm:leading-[52px]
+                    tracking-tight max-w-[590px]
+                  "
+                >
+                  Build{" "}
+                  <span className="text-secondary">Capability Academies</span>
+                  <br />
+                  to achieve{" "}
+                  <span className="text-secondary">Strategic Objectives</span>
+                </h1>
+
+                <p
+                  className="
+                    text-[#4A4848] font-poppins
+                    text-[16px] sm:text-[18px]
+                    leading-[28px] sm:leading-[30px]
+                    mt-5 max-w-[620px]
+                  "
+                  dangerouslySetInnerHTML={{ __html: heroData.description }}
+                />
+              </>
+            ) : (
+              <>
+                <h1 className="text-black font-poppins text-[32px] sm:text-[42px] font-bold leading-[1.2] max-w-[600px]">
+                  {heroData.simpleTitle}
+                </h1>
+
+                <p
+                  className="text-[#4A4848] font-poppins text-[18px] leading-[30px] mt-5 max-w-[620px]"
+                  dangerouslySetInnerHTML={{ __html: heroData.description }}
+                />
+              </>
+            )}
+
+            {/* Button */}
             <Button
-              variant="destructive"
-              className="rounded-[4px] mb-[30px] py-[22.5px] shadow-[0px_14.13px_29.01px_0px_rgba(0,0,0,0.18)] text-main font-poppins text-[15px] font-medium leading-[30px] w-[208px] transition-all cursor-pointer bg-gradient-to-r from-[#FF802C] via-[#FF802C] to-[#994D1A] bg-blend-normal hover:bg-secondary hover:bg-blend-multiply"
+              className="
+                rounded-[6px] mt-7 w-[210px] py-[18px]
+                text-white font-poppins text-[15px] font-medium
+                bg-gradient-to-r from-[#FF802C] to-[#994D1A]
+                shadow-[0px_12px_26px_rgba(0,0,0,0.18)]
+              "
             >
               {heroData.type === "complex"
                 ? heroData.button.label
                 : heroData.buttonText}
             </Button>
           </div>
-        </div>
 
-        <div className="flex justify-center w-full md:pl-1.5 pt-[10.5px]">
-          <Image
-            src={
-              heroData.type === "complex" ? heroData.heroImage : heroData.image
-            }
-            alt="hero"
-            width={heroData.type === "simple" ? 552 : 635}
-            height={heroData.type === "simple" ? 399 : 562}
-            className={
-              heroData.type === "simple"
-                ? "w-[335px] h-[242px] sm:w-[552px] sm:h-[399px]"
-                : "sm:w-[635px] sm:h-[562px] w-[335px] h-[296px]"
-            }
-          />
+          {/* RIGHT IMAGE */}
+          <div className="w-full sm:w-[48%] flex justify-center sm:justify-end">
+            <Image
+              src={heroData.type === "complex" ? heroData.heroImage : heroData.image}
+              alt="hero"
+              width={650}
+              height={650}
+              priority
+              className="object-contain w-full max-w-[650px]"
+            />
+          </div>
         </div>
-      </div>
+      )}
 
       <BrandSlider title={brandData.title} brands={brandData.brands} />
     </section>
@@ -131,3 +176,4 @@ const Hero: React.FC<HeroProps> = ({ heroData, brandData }) => {
 };
 
 export default Hero;
+

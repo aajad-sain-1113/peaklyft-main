@@ -9,7 +9,7 @@ const footerData = {
       flag: "/us.svg",
       title: "Corporate Headquarters",
       lines: [
-        "© AntWalk Inc.",
+        "©  Peaklyft Inc.",
         "1521 Concord Pike Ste 301 #250 Wilmington, DE",
         "19803",
       ],
@@ -25,14 +25,14 @@ const footerData = {
   ],
   columns: [
     {
-      title: "Why AntWalk?",
+      title: "Why Peaklyft?",
       links: [
-        { name: "Why AntWalk - AntWalk Difference", href: "#" },
+        { name: "Why  Peaklyft-  Peaklyft Difference", href: "#" },
         { name: "Why Capability Academy?", href: "#" },
         { name: "Choose the right Assessment for team", href: "#" },
         { name: "Success Stories", href: "#" },
         { name: "About us", href: "#" },
-        { name: "Careers at AntWalk", href: "#" },
+        { name: "Careers at  Peaklyft", href: "#" },
       ],
     },
     {
@@ -191,7 +191,7 @@ const Footer = () => {
               </div>
 
               <p className="text-[15px] font-medium text-white">
-                © AntWalk Inc. All rights reserved
+                ©  Peaklyft Inc. All rights reserved
               </p>
             </div>
 

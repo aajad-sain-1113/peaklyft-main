@@ -6,7 +6,7 @@ const Trust = () => {
   return (
     <section className="container mx-auto py-16 px-4">
       <h2 className="text-center text-3xl md:text-4xl font-bold mb-12">
-        Why trust <span className="text-primary">AntWalk?</span>
+        Why trust <span className="text-primary">Peaklyft</span>
       </h2>
 
       <div className="border-4 border-secondary rounded-3xl md:p-[21px] p-4 shadow-sm">

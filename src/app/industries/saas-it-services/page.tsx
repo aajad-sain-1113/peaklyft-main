@@ -17,7 +17,7 @@ import { testimonialRightImage, testimonialsData } from "@/utils/testimonialData
 export default function SaasItServicesPage() {
   return (
     <>
-    <div className="md:px-1 px-2.5 sm:px-2">
+    <div className="px-2.5">
       <IndustrySection data={saasData} />
       <TrustedBrandsSlider title={trustedBrands.title} logos={trustedBrands.logos} />
    

@@ -1,6 +1,6 @@
 
 export const comparisonData = {
-  headings: ["Strategic Consultants", "Training Consultants", "LXP/LMS", "MOOCS", "AntWalk"],
+  headings: ["Strategic Consultants", "Training Consultants", "LXP/LMS", "MOOCS", " Peaklyft"],
   features: [
     {
       name: "Strategic Advisory",

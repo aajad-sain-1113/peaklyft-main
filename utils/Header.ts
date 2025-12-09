@@ -1,27 +1,51 @@
-export const headerMenu = [
+export interface MegaItem {
+  title: string;
+  description: string;
+  href: string;
+  icon: string;
+}
+
+export interface MegaSectionType {
+  title?: string;
+  items: MegaItem[];
+}
+
+export interface MenuItemType {
+  label: string;
+  type: "link" | "mega";
+  href?: string;
+  image?: string;
+  sections?: MegaSectionType[];
+}
+
+export const headerMenu: MenuItemType[] = [
   {
     label: "Solution",
     type: "mega",
     sections: [
       {
-        title: "Sales Academy",
-        description: "Transform your salesforce into high performing teams.",
-        href: "/solutions/sales-academy",
+        title: "Academies",
+        items: [
+          {
+            title: "Sales Academy",
+            description:
+              "Transform your salesforce into high-performing teams that close deals faster and smarter.",
+            href: "/solutions/sales-academy",
+            icon: "sales",
+          },
+        ],
       },
       {
-        title: "Customer Success Academy",
-        description: "Drive retention and customer loyalty.",
-        href: "/solutions/customer-success-academy",
-      },
-      {
-        title: "Finance Academy",
-        description: "Build high calibre finance teams.",
-        href: "/solutions/finance",
-      },
-      {
-        title: "Engineering Academy",
-        description: "Strengthen engineering teams with modern skills.",
-        href: "/solutions/engineering",
+        title: "Initiatives",
+        items: [
+          {
+            title: "Succession Planning",
+            description:
+              "Prepare future leaders with a structured pathway to fill critical roles.",
+            href: "/initiatives/succession-planning",
+            icon: "succession",
+          },
+        ],
       },
     ],
   },
@@ -29,52 +53,66 @@ export const headerMenu = [
   {
     label: "Industries",
     type: "mega",
+    image: "/icons/ebook.png",
     sections: [
       {
-        title: "IT Services",
-        description: "Structured capability-building programs.",
-        href: "/industries/saas-it-services",
-      },
-      {
-        title: "Customer Success Academy",
-        description: "Leverage generative AI for workforce acceleration.",
-        href: "/industries/ai",
-      },
-      {
-        title: "Assessments",
-        description: "Measure and benchmark skill gaps.",
-        href: "/industries/assessments",
+        items: [
+          {
+            title: "IT Services",
+            description: "Structured capability-building programs.",
+            href: "/industries/saas-it-services",
+            icon: "it",
+          },
+        ],
       },
     ],
   },
 
   {
-    label: "Why AntWalk?",
+    label: "Why Peaklyft?",
     type: "mega",
+    image: "/icons/ebook.png",
     sections: [
       {
-        title: "Our Process",
-        description: "Discover how AntWalk powers capability building.",
-        href: "/why/process",
-      },
-      {
-        title: "Impact Stories",
-        description: "Success stories from global teams.",
-        href: "/why/stories",
+        items: [
+          {
+            title: "Our Process",
+            description: "Discover how Peaklyft powers capability building.",
+            href: "/why/process",
+            icon: "process",
+          },
+          {
+            title: "Impact Stories",
+            description: "Success stories from global teams.",
+            href: "/why/stories",
+            icon: "stories",
+          },
+          {
+            title: "About Us",
+            description:
+              "Learn more about our mission to empower workforces through innovative learning experiences",
+            href: "/why/about-us",
+            icon: "about",
+          },
+        ],
       },
     ],
   },
-
-  {
-    label: "Partners",
-    type: "link",
-    href: "/partners",
-  },
-
   {
     label: "Research Center",
-    type: "link",
-    href: "/research-center",
+    type: "mega",
+    image: "/icons/ebook.png",
+    sections: [
+      {
+        items: [
+          {
+            title: "Blog",
+            description: "Success stories from global teams.",
+            href: "/research-center/blog",
+            icon: "blog",
+          },
+        ],
+      },
+    ],
   },
 ];
-

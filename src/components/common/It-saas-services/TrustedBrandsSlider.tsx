@@ -39,16 +39,17 @@ const TrustedBrandsSlider: React.FC<Props> = ({ title, logos }) => {
         >
           {logos.map((brand, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-black rounded-xl flex justify-center items-center h-[110px] transition-transform duration-300 hover:scale-105 p-4 shadow-md">
-                <Image
-                  src={brand.image}
-                  alt={brand.alt}
-                  width={200}
-                  height={100}
-                  className="h-full object-contain filter grayscale invert"
-                />
-              </div>
-            </SwiperSlide>
+  <div className="bg-white rounded-xl flex justify-center items-center h-[110px] transition-transform duration-300 hover:scale-105 p-4 shadow-md">
+    <Image
+      src={brand.image}
+      alt={brand.alt}
+      width={200}
+      height={100}
+      className="h-full object-contain"
+    />
+  </div>
+</SwiperSlide>
+
           ))}
         </Swiper>
 

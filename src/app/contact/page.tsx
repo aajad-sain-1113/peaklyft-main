@@ -28,7 +28,7 @@ const ContactPage = () => {
 
             <div className="flex items-center gap-3 mt-3">
               <Mail className="text-primary w-5 h-5" />
-              <p className="text-gray-700">support@antwalk.com</p>
+              <p className="text-gray-700">support@Peaklyft.com</p>
             </div>
           </div>
 
@@ -90,7 +90,7 @@ const ContactPage = () => {
             </div>
 
             <p className="text-gray-700 mt-2 leading-6">
-              © AntWalk Inc. <br />
+              ©  Peaklyft Inc. <br />
               1521 Concord Pike Ste 301 #250 <br />
               Wilmington, DE 19803
             </p>
