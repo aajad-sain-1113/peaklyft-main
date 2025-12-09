@@ -18,7 +18,7 @@ const ComparisonTable: React.FC<Props> = ({ data }) => {
   return (
     <div className="container w-full overflow-x-auto py-10">
       <h2 className="font mb-10">
-        Why Choose <span className="text-primary">AntWalk</span> Over Others?
+        Why Choose <span className="text-primary">Peaklyft</span> Over Others?
       </h2>
 
       <table className="min-w-full border-collapse">

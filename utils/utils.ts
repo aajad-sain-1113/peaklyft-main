@@ -30,7 +30,7 @@ export const methodologyData: MethodologyItem[] = [
     icon: "/darkrender.svg",
     heading: "Build gap with precise learning assets",
     description:
-      "Specific Learning Assets created by Industry Experts Access a diverse library of learning materials from trusted partners and AntWalk Originals.​​Provide customized training to quickly upskill employees and enhance productivity.",
+      "Specific Learning Assets created by Industry Experts Access a diverse library of learning materials from trusted partners and  Peaklyft Originals.​​Provide customized training to quickly upskill employees and enhance productivity.",
   },
 ];
 
@@ -49,7 +49,7 @@ export const footerData = {
       title: "Corporate Headquarters",
       flag: "🇺🇸",
       lines: [
-        "© AntWalk Inc.",
+        "©  Peaklyft Inc.",
         "1521 Concord Pike Ste 301 #250 Wilmington, DE 19803",
       ],
     },
@@ -64,7 +64,7 @@ export const footerData = {
   ],
 
   social: [
-    { name: "Email", icon: "/icons/mail.svg", link: "mailto:info@antwalk.com" },
+    { name: "Email", icon: "/icons/mail.svg", link: "mailto:info@peaklyft.com" },
     { name: "Facebook", icon: "/icons/fb.svg", link: "https://facebook.com" },
     { name: "LinkedIn", icon: "/icons/linkedin.svg", link: "https://linkedin.com" },
     { name: "Twitter", icon: "/icons/twitter.svg", link: "https://twitter.com" },
@@ -72,9 +72,9 @@ export const footerData = {
 
   columns: [
     {
-      title: "Why AntWalk?",
+      title: "Why  Peaklyft?",
       links: [
-        { name: "Why AntWalk - AntWalk Difference", href: "/why-antwalk" },
+        { name: "Why  Peaklyft -  Peaklyft Difference", href: "/why- Peaklyft" },
         { name: "Why Capability Academy?", href: "/capability-academy" },
         { name: "Choose the right Assessment for team", href: "/assessment" },
         { name: "Success Stories", href: "/success-stories" },
@@ -153,11 +153,11 @@ export const footerData = {
 export const whatsNewDefaultContent = {
   title: {
     normalStart: "What's new at",
-    highlight: "AntWalk?",
+    highlight: " Peaklyft?",
     normalEnd: "",
   },
   subtitle: "Stay Connected, Stay Informed",
-  description: "AntWalk in news, Blogs, Case Studies, Events",
+  description: " Peaklyft in news, Blogs, Case Studies, Events",
 };
 
 export const whatsNewDefaultData = [
@@ -192,11 +192,11 @@ export const whatsNewDefaultData = [
 export const whatsNewDefaultContent2 = {
   title: {
     normalStart: "What's new at",
-    highlight: "AntWalk?",
+    highlight: " Peaklyft?",
     normalEnd: "",
   },
   subtitle: "Stay Connected, Stay Informed",
-  description: "AntWalk in news, Blogs, Case Studies, Events",
+  description: " Peaklyft in news, Blogs, Case Studies, Events",
 };
 
 export const whatsNewDefaultData2 = [

@@ -1,0 +1,630 @@
+diff --git a/next.config.ts b/next.config.ts
+index e9ffa30..fe8300c 100644
+--- a/next.config.ts
++++ b/next.config.ts
+@@ -1,7 +1,14 @@
+ import type { NextConfig } from "next";
+ 
+ const nextConfig: NextConfig = {
+-  /* config options here */
++  images: {
++    domains: [
++      "cdn-icons-png.flaticon.com",
++      "upload.wikimedia.org",
++      "www.antwalk.com"
++    ],
++  },
+ };
+ 
+ export default nextConfig;
++
+diff --git a/src/app/why/about-us/page.tsx b/src/app/why/about-us/page.tsx
+index b55ae8c..8be588c 100644
+--- a/src/app/why/about-us/page.tsx
++++ b/src/app/why/about-us/page.tsx
+@@ -1,5 +1,7 @@
+-import AboutDesign from "@/src/components/common/AboutDesign/AboutDesign";
+-import { aboutData, cardsData, heroData, investors, leadership, teamSection } from "@/utils/about";
++
++import AboutDesign from "@/src/components/about/AboutDesign/AboutDesign"; 
++import { aboutData, cardsData, endSectionData, heroData, investors, leadership, teamSection } from "@/utils/about";
++
+ 
+ export default function Page() {
+   return (
+@@ -10,6 +12,7 @@ export default function Page() {
+       teams={teamSection}
+       leadership={leadership}
+       investors={investors}
++      endSectionData={endSectionData}
+     />
+   );
+ }
+diff --git a/src/components/Hero/Hero.tsx b/src/components/Hero/Hero.tsx
+index 6defe98..ecc9b15 100644
+--- a/src/components/Hero/Hero.tsx
++++ b/src/components/Hero/Hero.tsx
+@@ -37,90 +37,90 @@ interface HeroProps {
+     title: string;
+     brands: { name: string; logo: string }[];
+   };
++  variant?: "default" | "blog";
+ }
+ 
+-const Hero: React.FC<HeroProps> = ({ heroData, brandData }) => {
++const Hero: React.FC<HeroProps> = ({ heroData, brandData, variant = "default" }) => {
+   return (
+     <section
+-      className="w-full px-2.5"
++      className="w-full px-2.5 "
+       style={{
+         background:
+-          heroData.type === "simple"
++          variant === "blog"
++            ? "none"
++            : heroData.type === "simple"
+             ? "none"
+             : "radial-gradient(at top right, #4E5FF545 0%, #DBDFFF00 10%)",
+       }}
+     >
+-      <div className={`container flex ${heroData.type === "simple" ? "flex-col sm:flex-row" : "flex-col-reverse sm:flex-row"} justify-between items-center pt-5`}>
+-        <div className="w-full flex flex-col sm:text-left text-left sm:gap-2.5 mt-[70px] mb-[30px]">
+-          {heroData.type === "simple" && (
+-            <p className="text-primary font-merriweather sm:text-[24px] text-[20px] font-bold italic sm:leading-[30px]">
+-              {heroData.badge}
+-            </p>
+-          )}
+-          
+-          {heroData.type === "complex" && (
+-            <p className="text-[#4A4848] font-poppins sm:text-[14px] text-[12px] font-medium italic underline sm:leading-5">
+-              {heroData.topTagline}
++      <div
++        className={`container flex 
++          ${
++            heroData.type === "simple"
++              ? "flex-col sm:flex-row"
++              : "flex-col-reverse sm:flex-row"
++          }
++          justify-between items-start pt-16
++        `}
++      >
++        {/* LEFT CONTENT */}
++  <div className="w-full flex flex-col sm:gap-0.5 text-left pl-0.3">
++          {variant === "blog" && (
++            <p className="text-black font-merriweather text-[40px] mb-1 mt-25 leading-tight">
++              Blog
+             </p>
+           )}
+ 
+           {heroData.type === "complex" ? (
+-            <h1 className="text-[#1C1C1C] font-poppins sm:text-[40px] text-[26px] font-semibold sm:leading-[60px]">
+-              {heroData.title.line1Start}{" "}
+-              <span className="text-secondary">
+-                {heroData.title.highlight1}
+-              </span>{" "}
+-              {heroData.title.line1End}
+-              <br />
+-              {heroData.title.line2Start}{" "}
+-              <span className="text-secondary">
+-                {heroData.title.highlight2}
+-              </span>{" "}
+-              {heroData.title.line2End}
+-            </h1>
++            <>
++              <h1 className="text-black font-poppins sm:text-[25px] text-[25px] font-bold leading-tight max-w-[545px]">
++                {heroData.title.line1Start}{" "}
++                <span className="text-secondary">{heroData.title.highlight1}</span>{" "}
++                {heroData.title.line1End}
++                <br />
++                {heroData.title.line2Start}{" "}
++                <span className="text-secondary">{heroData.title.highlight2}</span>{" "}
++                {heroData.title.line2End} 
++              </h1>
++
++              <p
++                className="text-[#4A4848] font-poppins sm:text-[20px] text-[16px] leading-[30px] max-w-[650px] mt-4"
++                dangerouslySetInnerHTML={{ __html: heroData.description }}
++              />
++            </>
+           ) : (
+-            <h1 className="text-[#1C1C1C] font-poppins text-[45px] font-semibold sm:leading-[60px]">
+-              {heroData.simpleTitle}
+-            </h1>
+-          )}
+-          {heroData.type === "simple" && (
+-            <p
+-              className="text-[#4A4848] font-poppins text-[20px] font-medium leading-[27px]"
+-              dangerouslySetInnerHTML={{ __html: heroData.description }}
+-            />
+-          )}
+-          {heroData.type === "complex" && (
+-            <p
+-              className="text-[#4A4848] font-poppins sm:text-[18px] text-[14px] font-medium leading-[30px]"
+-              dangerouslySetInnerHTML={{ __html: heroData.description }}
+-            />
++            <>
++              <h1 className="text-black font-poppins sm:text-[36px] text-[32px] font-bold leading-[50px] max-w-[575px]">
++                {heroData.simpleTitle}
++              </h1>
++
++              <p
++                className="text-[#4A4848] font-poppins sm:text-[20px] text-[16px] leading-[30px] max-w-[650px] mt-4"
++                dangerouslySetInnerHTML={{ __html: heroData.description }}
++              />
++            </>
+           )}
+ 
+-          <div className="mt-5">
++          {variant !== "blog" && (
+             <Button
+               variant="destructive"
+-              className="rounded-[4px] mb-[30px] py-[22.5px] shadow-[0px_14.13px_29.01px_0px_rgba(0,0,0,0.18)] text-main font-poppins text-[15px] font-medium leading-[30px] w-[208px] transition-all cursor-pointer bg-gradient-to-r from-[#FF802C] via-[#FF802C] to-[#994D1A] bg-blend-normal hover:bg-secondary hover:bg-blend-multiply"
++              className="rounded-[4px] mt-6 w-[208px] py-[22.5px] shadow-[0px_14.13px_29.01px_0px_rgba(0,0,0,0.18)] text-main font-poppins text-[15px] font-medium bg-gradient-to-r from-[#FF802C] via-[#FF802C] to-[#994D1A]"
+             >
+               {heroData.type === "complex"
+                 ? heroData.button.label
+                 : heroData.buttonText}
+             </Button>
+-          </div>
++          )}
+         </div>
+ 
+-        <div className="flex justify-center w-full md:pl-1.5 pt-[10.5px]">
++        {/* RIGHT IMAGE */}
++        <div className="flex w-full justify-end items-center mt-1 ">
+           <Image
+-            src={
+-              heroData.type === "complex" ? heroData.heroImage : heroData.image
+-            }
++            src={heroData.type === "complex" ? heroData.heroImage : heroData.image}
+             alt="hero"
+-            width={heroData.type === "simple" ? 552 : 635}
+-            height={heroData.type === "simple" ? 399 : 562}
+-            className={
+-              heroData.type === "simple"
+-                ? "w-[335px] h-[242px] sm:w-[552px] sm:h-[399px]"
+-                : "sm:w-[635px] sm:h-[562px] w-[335px] h-[296px]"
+-            }
++            width={650}
++            height={450}
++            className="w-[450px] sm:w-[650px] h-auto"
+           />
+         </div>
+       </div>
+@@ -130,4 +130,4 @@ const Hero: React.FC<HeroProps> = ({ heroData, brandData }) => {
+   );
+ };
+ 
+-export default Hero;
+\ No newline at end of file
++export default Hero;
+diff --git a/src/components/common/AboutDesign/AboutDesign.tsx b/src/components/common/AboutDesign/AboutDesign.tsx
+deleted file mode 100644
+index ca4601c..0000000
+--- a/src/components/common/AboutDesign/AboutDesign.tsx
++++ /dev/null
+@@ -1,253 +0,0 @@
+-"use client";
+-
+-import { useState } from "react";
+-import { Linkedin } from "lucide-react";
+-import { endSectionData } from "@/utils/about";
+-
+-interface HeroType {
+-  title: string;
+-  subtitle: string;
+-  description: string;
+-  buttonText: string;
+-  backgroundImage: string;
+-}
+-
+-interface AboutType {
+-  title: string;
+-  image: string;
+-  description1: string;
+-  description2: string;
+-}
+-
+-interface CardType {
+-  title: string;
+-  text: string;
+-  bg: string;
+-}
+-
+-interface TeamType {
+-  name: string;
+-  role: string;
+-  exp: string;
+-  img: string;
+-}
+-
+-interface Props {
+-  hero: HeroType;
+-  about: AboutType;
+-  cards: CardType[];
+-  teams: TeamType[];
+-  leadership: TeamType[];
+-  investors: TeamType[];
+-}
+-
+-export default function AboutDesign({
+-  hero,
+-  about,
+-  cards,
+-  teams,
+-  leadership,
+-  investors,
+-}: Props) {
+-  const tabs = ["Our Team", "Our Leadership", "Our Investors"];
+-  const [activeTab, setActiveTab] = useState("Our Team");
+-  const [index, setIndex] = useState(0);
+-
+-  const getMembers = () => {
+-    if (activeTab === "Our Team") return teams;
+-    if (activeTab === "Our Leadership") return leadership;
+-    return investors;
+-  };
+-
+-  const members = getMembers();
+-  const maxIndex = Math.max(0, members.length - 3);
+-
+-  const nextSlide = () => setIndex((i) => (i === maxIndex ? 0 : i + 1));
+-  const prevSlide = () => setIndex((i) => (i === 0 ? maxIndex : i - 1));
+-
+-  return (
+-    <div className="w-full">
+-      <section
+-  className="relative h-[75vh] w-full bg-cover bg-left bg-no-repeat flex items-center"
+-  style={{ backgroundImage: "url('/backgroundimage.png')" }}
+->
+-  <div className="absolute inset-0 bg-secondary/70"></div>
+-
+-  <div className="relative z-10 max-w-4xl text-white pl-10 md:pl-20">
+-    <h1 className="text-4xl md:text-4xl font-bold leading-tight merri">
+-      {hero.title}
+-    </h1>
+-
+-    <p className="text-2xl mt-4 font-semibold">
+-      {hero.subtitle}
+-    </p>
+-
+-    <p className="mt-1 text-lg opacity-90 leading-relaxed max-w-2xl">
+-      {hero.description}
+-    </p>
+-
+-    <button className="mt-8 bg-primary px-8 py-3 rounded-[4px] text-white font-semibold text-lg shadow-lg hover:bg-primary transition">
+-      {hero.buttonText}
+-    </button>
+-  </div>
+-</section>
+-
+-
+-      <section className="py-24 px-6 md:px-20 flex flex-col md:flex-row items-center gap-20">
+-      
+-        <div className="md:w-1/2">
+-          <img
+-            src={about.image}
+-            alt="About  Peaklyft"
+-            className="w-full rounded-[20px] shadow-xl border border-gray-200"
+-          />
+-        </div>
+-
+-        
+-        <div className="md:w-1/2">
+-          <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+-            {about.title}
+-          </h2>
+-
+-          <p className=" text-lg text-black-600 text-bol   leading-[1.8] mb-6">
+-            {about.description1}
+-          </p>
+-
+-          <p className="text-lg text-black-600 leading-[1.8]">
+-            {about.description2}
+-          </p>
+-        </div>
+-      </section>
+-
+-      <section className="relative py-24 px-6 md:px-20">
+-        <div className="absolute inset-0">
+-          <div className="h-1/2 bg-white"></div>
+-          <div className="h-1/2 bg-secondary/90"></div>
+-        </div>
+-
+-        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12">
+-          {cards.map((c, i) => (
+-            <div
+-              key={i}
+-              className=" p-12 shadow-xl bg-white"
+-              style={{ backgroundColor: c.bg }}
+-            >
+-              <h3 className="text-2xl font-bold mb-5">{c.title}</h3>
+-              <p className="text-lg leading-relaxed text-gray-700">{c.text}</p>
+-            </div>
+-          ))}
+-        </div>
+-      </section>
+-
+-
+-      <h1 className="text-center text-4xl font-bold my-20"> Peaklyft</h1>
+-
+-      <div className="flex flex-col md:flex-row gap-10 px-6 md:px-16 pb-20">
+-        <div className="w-full md:w-1/4 flex md:flex-col gap-5">
+-          {tabs.map((tab) => (
+-            <button
+-              key={tab}
+-              onClick={() => {
+-                setActiveTab(tab);
+-                setIndex(0);
+-              }}
+-              className={`px-6 py-5 rounded-2xl text-left font-medium text-lg transition-all shadow-sm
+-                ${
+-                  activeTab === tab
+-                    ? " bg-secondary/90 text-white shadow-lg"
+-                    : "bg-white hover:bg-gray-100 border text-black"
+-                }`}
+-            >
+-              {tab}
+-            </button>
+-          ))}
+-        </div>
+-
+-  
+-        <div className="w-full md:w-3/4 relative overflow-hidden">
+-        
+-          <div
+-            className="flex transition-transform duration-500"
+-            style={{
+-              transform: `translateX(-${(index * 100) / 3}%)`,
+-            }}
+-          >
+-            {members.map((p, i) => (
+-              <div
+-                key={i}
+-                className="w-1/3 px-5 shrink-0"
+-                style={{ minWidth: "33.3333%" }}
+-              >
+-                <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+-                
+-                  <div className="bg-secondary/90 h-[230px] flex justify-center items-center">
+-                    <img src={p.img} className="h-[200px] object-contain" />
+-                  </div>
+-
+-                  
+-                  <div className="p-6 text-center">
+-                    <h3 className="text-xl font-bold">{p.name}</h3>
+-                    <p className="text-gray-700">{p.role}</p>
+-                    <p className="text-gray-500 mt-1">{p.exp}</p>
+-
+-                    <div className="flex justify-center mt-4">
+-                      <Linkedin className="w-7 h-7 text-blue-700 hover:scale-110 transition" />
+-                    </div>
+-                  </div>
+-                </div>
+-              </div>
+-            ))}
+-          </div>
+-
+-        
+-          <button
+-            onClick={prevSlide}
+-            className="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow p-3 rounded-full hover:bg-gray-200 transition"
+-          >
+-            
+-          </button>
+-          <button
+-            onClick={nextSlide}
+-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow p-3 rounded-full hover:bg-gray-200 transition"
+-          >
+-            
+-          </button>
+-
+-      
+-         <div className="flex justify-center mt-6 space-x-3">
+-  {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+-    <div
+-      key={i}
+-      onClick={() => setIndex(i)}
+-      className={`h-4 w-4 rounded-full cursor-pointer transition-all duration-600
+-        ${index === i ? "bg-orange-500 scale-110" : "bg-black"}`}
+-    />
+-  ))}
+-</div>
+-
+-        </div>
+-      </div>
+-    
+-      <section className="py-20 text-center px-6 md:px-20 bg-white">
+-        <h2 className="text-8xl md:text-5xl font-bold mb-7">
+-          {endSectionData.title}
+-        </h2>
+-
+-        <h3 className="text-6xl md:text-4xl font-extrabold mb-7">
+-          {endSectionData.subtitle}
+-        </h3>
+-
+-        <p className="text-black-600 text-lg mb-8 ">
+-          {endSectionData.description}
+-        </p>
+-
+-        <a
+-          href={endSectionData.buttonLink}
+-          className="bg-orange-500 px-8 py-3 rounded-full text-white text-lg shadow-lg hover:bg-orange-600 transition"
+-        >
+-          {endSectionData.buttonText}
+-        </a>
+-      </section>
+-    </div>
+-  );
+-}
+diff --git a/utils/Header.ts b/utils/Header.ts
+index b029481..7b34b38 100644
+--- a/utils/Header.ts
++++ b/utils/Header.ts
+@@ -63,13 +63,12 @@ export const headerMenu = [
+         href: "/why/stories",
+       },
+ 
+-    {
+-       title:"About Us",
+-       description:"Learn more about our mission to empower workforces through innovative learning experiences",
+-       href :"/why/about-us",
+-
+-    }
+-  
++      {
++        title: "About Us",
++        description:
++          "Learn more about our mission to empower workforces through innovative learning experiences",
++        href: "/why/about-us",
++      },
+     ],
+   },
+ 
+@@ -81,8 +80,13 @@ export const headerMenu = [
+ 
+   {
+     label: "Research Center",
+-    type: "link",
+-    href: "/research-center",
++    type: "mega",
++    sections: [
++      {
++        title: "blog",
++        description: "Success stories from global teams.",
++        href: "/research-center/blog",
++      },
++    ],
+   },
+ ];
+-
+diff --git a/utils/Hero.ts b/utils/Hero.ts
+index 18ef6ce..284b2e5 100644
+--- a/utils/Hero.ts
++++ b/utils/Hero.ts
+@@ -112,3 +112,83 @@ export const brandSections = {
+   },
+ };
+ 
++
++
++
++
++
++
++
++
++
++
++
++
++
++
++export const heroSectionsData = {
++  default: {
++    type: "complex",
++    topTagline: "Built by McKinsey Alums, Powered by Industry Leaders",
++    title: {
++      line1Start: "Build",
++      highlight1: "Capability Academies",
++      line1End: "",
++      line2Start: "to achieve",
++      highlight2: "Strategic Objectives",
++      line2End: "",
++    },
++    
++  } as const,
++
++  growth: {
++    type: "complex",
++    topTagline: "Accelerate Organizational Growth",
++    title: {
++      line1Start: "Elevate Your",
++      highlight1: "Growth Teams",
++      line1End: "",
++      line2Start: "with",
++      highlight2: "High-Impact Academies",
++      line2End: "",
++    },
++    description: "Specialized capability academies designed...",
++    button: { label: "Explore Growth" },
++    heroImage: "/growth-hero.png",
++  } as const,
++
++  people: {
++    type: "complex",
++    topTagline: "Transform Your Workforce",
++    title: {
++      line1Start: "Build Strong",
++      highlight1: "People Leaders",
++      line1End: "",
++      line2Start: "with",
++      highlight2: "Leadership Academies",
++      line2End: "",
++    },
++    description: "Leadership, talent and HR academies built...",
++    button: { label: "Explore People" },
++    heroImage: "/people-hero.png",
++  } as const,
++
++  blog: {
++    type: "simple",
++    badge: "Blog",
++    simpleTitle: "Explore, Learn, and stay </br> informed with our blog section",
++    description: "",
++    image: "https://www.antwalk.com/wp-content/uploads/2024/05/9084-copy-1.png",
++  } as const,
++
++  "marketing-academy": {
++    type: "simple",
++    badge: " Peaklyft Marketing Academy",
++    simpleTitle: "Grow Your Brand, Smarter!",
++    description:
++      "Boost your marketing performance with structured capability building...",
++    buttonText: "Talk to Experts",
++    image: "/images/marketing-academy.png",
++  } as const,
++} as const;
++
+diff --git a/utils/about.ts b/utils/about.ts
+index 91d1f0c..1bf0824 100644
+--- a/utils/about.ts
++++ b/utils/about.ts
+@@ -201,3 +201,37 @@ export const endSectionData = {
+   buttonText: "Schedule a Demo",
+   buttonLink: "/schedule-a-demo",
+ };
++
++export const blogHeroData = {
++  type: "simple",
++  badge: "Blog",
++  simpleTitle: "Explore, Learn, and stay informed with our blog section",
++  image:
++    "https://www.antwalk.com/wp-content/uploads/2024/05/9084-copy-1.png",
++} as const;
++
++export const blogBrandData = {
++  title: "Trusted by Brands Globally",
++  brands: [
++    {
++      name: "Google",
++      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
++    },
++    {
++      name: "Microsoft",
++      logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
++    },
++    {
++      name: "Netflix",
++      logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
++    },
++    {
++      name: "Amazon",
++      logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
++    },
++    {
++      name: "Adobe",
++      logo: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Adobe_Corporate_Logo.png",
++    },
++  ],
++};

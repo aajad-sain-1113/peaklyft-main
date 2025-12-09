@@ -1,5 +1,7 @@
-import AboutDesign from "@/src/components/common/AboutDesign/AboutDesign";
-import { aboutData, cardsData, heroData, investors, leadership, teamSection } from "@/utils/about";
+
+import AboutDesign from "@/src/components/about/AboutDesign/AboutDesign"; 
+import { aboutData, cardsData, endSectionData, heroData, investors, leadership, teamSection } from "@/utils/about";
+
 
 export default function Page() {
   return (
@@ -10,6 +12,7 @@ export default function Page() {
       teams={teamSection}
       leadership={leadership}
       investors={investors}
+      endSectionData={endSectionData}
     />
   );
 }

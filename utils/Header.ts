@@ -49,12 +49,12 @@ export const headerMenu = [
   },
 
   {
-    label: "Why AntWalk?",
+    label: "Why  Peaklyft?",
     type: "mega",
     sections: [
       {
         title: "Our Process",
-        description: "Discover how AntWalk powers capability building.",
+        description: "Discover how  Peaklyft powers capability building.",
         href: "/why/process",
       },
       {
@@ -63,13 +63,12 @@ export const headerMenu = [
         href: "/why/stories",
       },
 
-    {
-       title:"About Us",
-       description:"Learn more about our mission to empower workforces through innovative learning experiences",
-       href :"/why/about-us",
-
-    }
-  
+      {
+        title: "About Us",
+        description:
+          "Learn more about our mission to empower workforces through innovative learning experiences",
+        href: "/why/about-us",
+      },
     ],
   },
 
@@ -81,8 +80,14 @@ export const headerMenu = [
 
   {
     label: "Research Center",
-    type: "link",
-    href: "/research-center",
+    type: "mega",
+    sections: [
+      {
+        title: "blog",
+        description: "Success stories from global teams.",
+        href: "/research-center/blog",
+      },
+    ],
   },
 ];
 

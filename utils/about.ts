@@ -7,17 +7,17 @@ export const heroData = {
   title: "We Strive for a World of Capability-First Organizations",
   subtitle: "Human capabilities are limitless.",
   description:
-    "It was, and always will be, the key to navigating change and thriving in any era. At AntWalk, we want to empower organizations to leverage their workforce capabilities and gain competitive advantage in the age of AI.",
+    "It was, and always will be, the key to navigating change and thriving in any era. At  Peaklyft, we want to empower organizations to leverage their workforce capabilities and gain competitive advantage in the age of AI.",
   buttonText: "Schedule a Demo",
   backgroundImage: "/backgroundimage.png",
 };
 
 export const aboutData = {
   image: "/aboutus.png",
-  title: "About AntWalk",
-  description1:"AntWalk envisions a future where individuals are evaluated based on their ability to perform, fostering equality and meritocracy. We believe in recognizing and nurturing talent purely based on performance and capability. By choosing AntWalk, you are committing to building an organization that values people for their true potential and their contributions to achieving business goals.",
+  title: "About  Peaklyft",
+  description1:" Peaklyft envisions a future where individuals are evaluated based on their ability to perform, fostering equality and meritocracy. We believe in recognizing and nurturing talent purely based on performance and capability. By choosing  Peaklyft, you are committing to building an organization that values people for their true potential and their contributions to achieving business goals.",
   description2:
-"AntWalk draws inspiration from the remarkable communication and collaboration of ants as they walk. Like these tiny creatures, we believe in the power of collective intelligence and social learning. Founded by McKinsey alumni and backed by marquee investors like GSV, Y Combinator, and Matrix Partners, AntWalk exists to help humans succeed in the age of AI."};
+" Peaklyft draws inspiration from the remarkable communication and collaboration of ants as they walk. Like these tiny creatures, we believe in the power of collective intelligence and social learning. Founded by McKinsey alumni and backed by marquee investors like GSV, Y Combinator, and Matrix Partners,  Peaklyft exists to help humans succeed in the age of AI."};
 
 
 
@@ -35,7 +35,7 @@ export const cardsData = [
   {
     title: "Our Philosophy",
     text:`Capability over credentials 
-AntWalk prioritizes capabilities over credentials/pedigree/ recommendations/gender/ experiences/ everything else`,
+ Peaklyft prioritizes capabilities over credentials/pedigree/ recommendations/gender/ experiences/ everything else`,
     bg: "#D0FFF7",
   },
 ];
@@ -197,7 +197,43 @@ export const endSectionData = {
   title: "End of Page",
   subtitle: "Curious about Your Team's Capability Level?",
   description:
-    "Experience the power of AntWalk’s Business Capability Platform today!",
+    "Experience the power of  Peaklyft's Business Capability Platform today!",
   buttonText: "Schedule a Demo",
   buttonLink: "/schedule-a-demo",
 };
+
+export const blogHeroData = {
+  type: "simple",
+  badge: "Blog",
+  simpleTitle: "Explore, Learn, and stay informed with our blog section",
+  image:
+    "https://www.antwalk.com/wp-content/uploads/2024/05/9084-copy-1.png",
+} as const;
+
+export const blogBrandData = {
+  title: "Trusted by Brands Globally",
+  brands: [
+    {
+      name: "Google",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+    },
+    {
+      name: "Microsoft",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg",
+    },
+    {
+      name: "Netflix",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+    },
+    {
+      name: "Amazon",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+    },
+    {
+      name: "Adobe",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Adobe_Corporate_Logo.png",
+    },
+    
+  ],
+};
+

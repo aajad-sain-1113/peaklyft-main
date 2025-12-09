@@ -40,7 +40,7 @@ export default function Methodology() {
   return (
     <section className="container mx-auto px-4 py-12 md:py-20 text-black rounded-[25px]">
       <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-14">
-        AntWalk <span className="text-primary">Methodology</span>
+        Peaklyft<span className="text-primary">Methodology</span>
       </h2>
 
       <div

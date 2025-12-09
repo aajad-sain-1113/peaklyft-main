@@ -98,7 +98,7 @@ export default function AboutDesign({
         <div className="md:w-1/2">
           <img
             src={about.image}
-            alt="About AntWalk"
+            alt="About Peaklyft"
             className="w-full rounded-[20px] shadow-xl border border-gray-200"
           />
         </div>
@@ -140,7 +140,7 @@ export default function AboutDesign({
       </section>
 
 
-      <h1 className="text-center text-4xl font-bold my-20">AntWalkers</h1>
+      <h1 className="text-center text-4xl font-bold my-20">Peaklyft</h1>
 
       <div className="flex flex-col md:flex-row gap-10 px-6 md:px-16 pb-20">
         <div className="w-full md:w-1/4 flex md:flex-col gap-5">
