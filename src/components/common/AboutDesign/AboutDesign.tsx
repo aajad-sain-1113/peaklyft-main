@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Linkedin } from "lucide-react";
-import { endSectionData } from "@/utils/about";
+import { aboutData, endSectionData } from "@/utils/about";
 
 interface HeroType {
   title: string;

@@ -243,6 +243,14 @@ export interface AboutData {
   description2: string;
 }
 
+export const endSectionData = {
+  title: "Ready to transform your organization?",
+  subtitle: "Join us in building a capability-first future",
+  description: "Schedule a demo to see how Peaklyft can help you unlock your team's full potential and gain a competitive edge in the age of AI.",
+  buttonText: "Schedule a Demo",
+  buttonLink: "/contact"
+};
+
 export const aboutData: AboutData = {
   image: "/aboutus.png",
   title: "About Peaklyft",

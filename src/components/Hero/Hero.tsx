@@ -53,7 +53,7 @@ const Hero: React.FC<HeroProps> = ({ heroData, brandData, variant = "default" })
             : "radial-gradient(at top right, #4E5FF545 0%, #DBDFFF00 10%)",
       }}
     >
-      {/* ⭐ BLOG HERO — FULLY RESPONSIVE */}
+      {/* BLOG HERO — FULLY RESPONSIVE */}
       {variant === "blog" && (
         <div className="max-w-[1280px] mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-5 py-16">
 

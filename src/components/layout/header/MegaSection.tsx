@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import type { MegaItem } from "@/utils/header";
+import type { MenuSectionItem } from "./MenuItem";
 
-const MegaSection = ({ item }: { item: MegaItem }) => {
+const MegaSection = ({ item }: { item: MenuSectionItem }) => {
   return (
     <Link href={item.href} className="flex items-start gap-4 group">
       <Image

@@ -1,22 +1,4 @@
-export interface MegaItem {
-  title: string;
-  description: string;
-  href: string;
-  icon: string;
-}
-
-export interface MegaSectionType {
-  title?: string;
-  items: MegaItem[];
-}
-
-export interface MenuItemType {
-  label: string;
-  type: "link" | "mega";
-  href?: string;
-  image?: string;
-  sections?: MegaSectionType[];
-}
+import { MenuItemType } from "../src/components/layout/header/MenuItem";
 
 export const headerMenu: MenuItemType[] = [
   {
@@ -24,73 +6,163 @@ export const headerMenu: MenuItemType[] = [
     type: "mega",
     sections: [
       {
-        title: "Academies",
+        title: "Build With PeakLyft",
         items: [
           {
-            title: "Sales Academy",
+            title: "Web Development",
             description:
-              "Transform your salesforce into high-performing teams that close deals faster and smarter.",
+              "We build high-performing, scalable, and secure websites.",
             href: "/solutions/sales-academy",
             icon: "sales",
           },
+          {
+            title: "Mobile App Development",
+            description:
+              "Create seamless Android, iOS, or cross–platform apps. ",
+            href: "/solutions/mobile-app-development",
+            icon: "mobile",
+          },
+          {
+            title: "Custom Software Development",
+            description:
+              "From idea to deployment, we develop end-to-end.",
+            href: "/solutions/custom-software",
+            icon: "web",
+          },
+          {
+            title: "UI/UX Design",
+            description:
+              "Beautiful, intuitive interfaces designed to boost.",
+            href: "/solutions/ui-ux-design",
+            icon: "design",
+          },
+          {
+            title: "Cloud Engineering",
+            description:
+              "Cloud migration, DevOps, and scalable architectures.",
+            href: "/solutions/cloud-engineering",
+            icon: "cloud",
+          },
         ],
       },
-      {
-        title: "Initiatives",
-        items: [
-          // {
-          //   title: "Succession Planning",
-          //   description:
-          //     "Prepare future leaders with a structured pathway to fill critical roles.",
-          //   href: "/initiatives/succession-planning",
-          //   icon: "succession",
-          // },
-        ],
-      },
-    ],
-  },
 
-  {
-    label: "Industries",
-    type: "mega",
-    image: "/icons/ebook.png",
-    sections: [
       {
+        title: "Emerging Tech",
         items: [
           {
-            title: "IT Services",
-            description: "Structured capability-building programs.",
-            href: "/industries/saas-it-services",
-            icon: "it",
+            title: "AI Development",
+            description:
+              "Build intelligent systems powered by modern artificial intelligence.",
+            href: "/solutions/ai-development",
+            icon: "AI",
+          },
+          {
+            title: "Blockchain",
+            description:
+              "Develop secure, decentralized blockchain apps and smart contracts.",
+            href: "/solutions/blockchain",
+            icon: "blockchain",
+          },
+          {
+            title: "Chatbot Development",
+            description:
+              "Enhance customer interactions with smart, automated chatbots.",
+            href: "/solutions/chatbot-development",
+            icon: "chat",
+          },
+        ],
+      },
+
+      {
+        title: "Scale With PeakLyft",
+        items: [
+          {
+            title: "Product Engineering",
+            description:
+              "End-to-end engineering support to build and scale modern products.",
+            href: "/solutions/product-engineering",
+            icon: "product",
+          },
+          {
+            title: "MVP → Product Scaling",
+            description:
+              "Transform your MVP into a scalable, market-ready product.",
+            href: "/solutions/mvp-scaling",
+            icon: "scaling",
+          },
+          {
+            title: "DevOps & Automation",
+            description:
+              "Automate workflows and accelerate deployment with modern DevOps.",
+            href: "/solutions/devops",
+            icon: "devops1",
+          },
+          {
+            title: "QA & Testing",
+            description:
+              "Ensure reliability and performance with efficient quality testing.",
+            href: "/solutions/qa-testing",
+            icon: "qa",
+          },
+          {
+            title: "Maintenance & Support",
+            description:
+              "Get long-term maintenance and continuous product support.",
+            href: "/solutions/maintenance-support",
+            icon: "maintain"
+            ,
           },
         ],
       },
     ],
   },
 
+  
+ {
+  label: "Industries",
+  type: "mega",
+  image: "/icons/ebook.png",
+  sections: [
+    {
+      title: "Industries",
+      items: [
+        {
+          title: "FinTech & Financial Services",
+          description: "Digital banking, payment solutions & secure finance platforms.",
+          href: "/industries/saas-it-services",
+          icon: "fintech",
+        },
+        {
+          title: "E-Commerce & Retail",
+          description: "Custom e-commerce platforms, multi-vendor solutions & CRM systems.",
+          href: "/industries/ecommerce-retail",
+          icon: "ecommerce",
+        },
+        {
+          title: "SaaS & Technology",
+          description: "Scalable SaaS products, automation systems & cloud architecture.",
+          href: "/industries/saas-technology",
+          icon: "saas",
+        },
+      ],
+    },
+  ],
+},
+
+
+ 
   {
     label: "Why Peaklyft?",
     type: "mega",
     image: "/icons/ebook.png",
     sections: [
       {
+        title: "Company",
         items: [
-          // {
-          //   title: "Our Process",
-          //   description: "Discover how Peaklyft powers capability building.",
-          //   href: "/why/process",
-          //   icon: "process",
-          // },
-          // {
-          //   title: "Impact Stories",
-          //   description: "Success stories from global teams.",
-          //   href: "/why/stories",
-          //   icon: "stories",
-          // },
           {
             title: "About Us",
             description:
-              "Learn more about our mission to empower workforces through innovative learning experiences",
+              "Learn more about our mission to empower workforces through innovative learning experiences.",
             href: "/why/about-us",
             icon: "about",
           },
@@ -98,12 +170,15 @@ export const headerMenu: MenuItemType[] = [
       },
     ],
   },
+
+  
   {
     label: "Research Center",
     type: "mega",
     image: "/icons/ebook.png",
     sections: [
       {
+        title: "Resources",
         items: [
           {
             title: "Blog",
@@ -112,13 +187,17 @@ export const headerMenu: MenuItemType[] = [
             icon: "blog",
           },
           {
-            title: "Contact us",
-            description: "Get in touch with our team and discuss your specific needs",
-            href: "contact",
-            icon: "blog",
+            title: "Contact Us",
+            description:
+              "Get in touch with our team and discuss your specific needs.",
+            href: "/contact",
+            icon: "contact",
           },
         ],
       },
     ],
   },
-];
+]
+
+
+ 
