@@ -126,7 +126,7 @@ const Hero: React.FC<HeroProps> = ({ heroData, brandData }) => {
 
       <BrandSlider title={brandData.title} brands={brandData.brands} />
     </section>
+
   );
 };
-
 export default Hero;

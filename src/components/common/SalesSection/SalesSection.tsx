@@ -116,7 +116,7 @@ export default function OnboardingSection({
           {title}
         </h2>
 
-        {/* TAGLINES */}
+   
         <div className="flex gap-3 mt-6 flex-wrap">
           {taglines.map((item) => (
             <div
@@ -130,13 +130,14 @@ export default function OnboardingSection({
 
         {desc && <p className="mt-6 text-xl leading-relaxed">{desc}</p>}
 
-        {/* BULLET POINTS (BLUE DIAMOND) */}
+       
         {points && (
           <div className="mt-6 space-y-4">
             {points.map((point, index) => (
               <div key={index} className="flex items-start gap-4">
                 <span className="w-4 h-4 bg-blue-600 rotate-45 block mt-1"></span>
                 <p className="text-lg leading-relaxed">{point}</p>
+
               </div>
             ))}
           </div>
@@ -145,3 +146,4 @@ export default function OnboardingSection({
     </section>
   );
 }
+
