@@ -90,7 +90,7 @@ export default function OnboardingSection({
         {/* BUTTON + SLIDER DOTS */}
         <div className="flex justify-between items-center">
           <div className="mt-6">
-            <Button className="px-6 py-5 bg-primary rounded-[2px]">
+            <Button variant="default" className="px-6 py-5 bg-primary rounded-[2px]">
               {buttonText}
             </Button>
           </div>

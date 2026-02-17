@@ -12,5 +12,5 @@ export const endSectionData: EndSectionData = {
   description:
     "Experience the power of Peaklyft's Business Capability Platform today!",
   buttonText: "Schedule a Demo",
-  buttonLink: "/schedule-a-demo",
+  buttonLink: "/schedule-demo",
 };

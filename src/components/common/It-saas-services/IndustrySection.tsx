@@ -1,3 +1,5 @@
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 interface IndustryProps {
@@ -33,7 +35,6 @@ const IndustrySection: React.FC<IndustryProps> = ({ data }) => {
 
         {/* CONTENT */}
         <div className="relative z-10 max-w-4xl text-center px-4">
-
           {/* TOP SMALL TITLE */}
           <h3 className="text-base md:text-lg font-semibold mb-6 md:mb-8">
             {data.title}
@@ -51,7 +52,10 @@ const IndustrySection: React.FC<IndustryProps> = ({ data }) => {
           {/* SERVICES */}
           <div className="mt-4 md:mt-6 text-lg flex justify-center flex-wrap gap-3 md:gap-4">
             {data.services.map((service, i) => (
-              <span key={i} className="flex items-center gap-2 text-base md:text-lg">
+              <span
+                key={i}
+                className="flex items-center gap-2 text-base md:text-lg"
+              >
                 {service}
                 {i !== data.services.length - 1 && (
                   <span className="text-white/70">|</span>
@@ -62,12 +66,14 @@ const IndustrySection: React.FC<IndustryProps> = ({ data }) => {
 
           {/* BUTTONS */}
           <div className="mt-8 md:mt-10 flex justify-center gap-4 md:gap-6">
-            <button className="bg-primary text-white px-6 py-2 md:px-8 md:py-3 rounded-lg text-sm md:text-base">
-              {data.demoBtn}
-            </button>
+            <Link rel="stylesheet" href="/schedule-demo">
+              <button className="bg-primary text-white px-6 py-2 md:px-8 md:py-3 rounded-lg text-sm md:text-base">
+                {data.demoBtn}
+              </button>
+            </Link>
 
-            <button className="border border-white hover:bg-white hover:text-secondary px-6 py-2 md:px-8 md:py-3 rounded-lg text-sm md:text-base transition">
-              {data.knowBtn} →
+            <button className="border flex items-center gap-1 border-white hover:bg-white hover:text-secondary px-6 py-2 md:px-8 md:py-3 rounded-lg text-sm md:text-base transition">
+              {data.knowBtn} <ArrowRight size={16} />
             </button>
           </div>
         </div>

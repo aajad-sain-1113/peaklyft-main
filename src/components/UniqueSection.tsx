@@ -32,7 +32,7 @@ const UniqueSection = ({
   useEffect(() => {
     const interval = setInterval(() => {
       setActive((prev) => (prev + 1) % tabs.length);
-    }, 3000);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, [tabs.length]);

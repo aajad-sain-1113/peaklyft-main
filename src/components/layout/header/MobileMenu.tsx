@@ -89,18 +89,22 @@ const MobileMenu = ({
                             <ChevronDown size={12} />
                           )}
                         </div>
-
                         <div
                           className={`overflow-hidden border-l pl-3 transition-all ${
                             isSubOpen
                               ? "max-h-[500px] opacity-100"
-                              : "max-h-0 opacity-0"
+                              : "max-h-full opacity-100"
                           }`}
                         >
                           {section.items.map((i: any) => (
                             <Link
                               key={i.href}
                               href={i.href}
+                              onClick={() => {
+                                setOpen(false);
+                                setActiveMain(null);
+                                setActiveSub(null);
+                              }}
                               className="block py-1 text-[14px] text-gray-700"
                             >
                               {i.title}

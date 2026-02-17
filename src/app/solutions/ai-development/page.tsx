@@ -58,8 +58,8 @@ export default function SalesAcademyPage() {
           buttonText={onboardingSectionData.buttonText}
           variant="left"
         /> */}
-        <ExpertsGrid data={expertsData} />
-        <WhatsNewCards data={whatsNewDefaultData2} showHeader={false} />
+        {/*<ExpertsGrid data={expertsData} /> */}
+        <WhatsNewCards data={whatsNewDefaultData2} />
         
     
       </div>
