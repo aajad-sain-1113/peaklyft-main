@@ -19,7 +19,7 @@ const footerData = {
    {
       title: "Build With Peaklyft",
       links: [
-        { name: "Web Development", href: "/solutions/sales-academy" },
+        { name: "Web Development", href: "/solutions/web-development" },
         { name: "Mobile App Development", href: "/solutions/mobile-app" },
         { name: "Customer Software Development", href: "/solutions/custom-software" },
         { name: "UI/UX Design", href: "/solutions/ui-ux-design" },
@@ -45,7 +45,7 @@ const footerData = {
         { name: "MVP->Product Scaling", href: "/solutions/cloud-engineering" },
         { name: "DevOps & Automation", href: "/solutions/ui-ux-design" },
         { name: "QA & Testing", href: "/solutions/mobile-app" },
-        { name: "Maintenance & Support", href: "/solutions/sales-academy" },
+        { name: "Maintenance & Support", href: "/solutions/web-development" },
         { name: "Product Engineering", href: "/solutions/ui-ux-design" },
         { name: "MVP->Product Scaling", href: "/solutions/cloud-engineering" },
        

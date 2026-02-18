@@ -95,7 +95,7 @@ export const footerData = {
     {
       title: "Academies",
       links: [
-        { name: "Sales Academy", href: "/solutions/sales-academy" },
+        { name: "Web Development Academy", href: "/solutions/web-development" },
         { name: "Customer Success Academy", href: "/solutions/customer-success-academy" },
         { name: "Finance Academy", href: "/solutions/finance-academy" },
         { name: "Leadership & EI Academy", href: "/solutions/leadership-academy" },

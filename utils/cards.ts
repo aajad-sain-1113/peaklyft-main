@@ -18,7 +18,7 @@ export const cardsData: CardItem[] = [
   {
     title: "Our Philosophy",
     text: `Capability over credentials 
-AntWalk prioritizes capabilities over credentials/pedigree/ recommendations/gender/ experiences/ everything else `,
+Peaklyft prioritizes capabilities over credentials/pedigree/ recommendations/gender/ experiences/ everything else `,
     bg: "#D0FFF7",
   },
 ];

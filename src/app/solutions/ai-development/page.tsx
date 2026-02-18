@@ -3,13 +3,13 @@ import ExpertsGrid from "@/src/components/common/SalesSection/expert/expert";
 import OnboardingSection from "@/src/components/common/SalesSection/SalesSection";
 import WhatsNewCards from "@/src/components/common/WhatsNew";
 import Hero from "@/src/components/Hero/Hero";
-import WhyChooseAntWalk from "@/src/components/whychoosePeaklyft/WhyChooseAntWalk";
+import WhyChoosePeaklyft from "@/src/components/whychoosePeaklyft/WhyChoosePeaklyft";
 import { salesAcademyTab3, salesAcademyTab5, salesAcademyTabs } from "@/utils/academyTabsData";
 import { expertsData } from "@/utils/expertsData";
 
 import { brandSections, cloudSections, customerSections, heroSections } from "@/utils/Hero";
 import { whatsNewDefaultData2 } from "@/utils/utils";
-import { whyChooseAntWalkData } from "@/utils/whychoosePeaklyft";
+import { whyChoosePeaklyft } from "@/utils/whychoosePeaklyft";
 
 
 export default function SalesAcademyPage() {
@@ -20,9 +20,9 @@ export default function SalesAcademyPage() {
           heroData={cloudSections["sales-academy"]}
           brandData={brandSections.default}
         />
-        <WhyChooseAntWalk
-          title={whyChooseAntWalkData.title}
-          description={whyChooseAntWalkData.description}
+        <WhyChoosePeaklyft
+          title={whyChoosePeaklyft.title}
+          description={whyChoosePeaklyft.description}
         />  
         <AcademyTabs
           title="Explore Cloud Engineering Offerings!!"

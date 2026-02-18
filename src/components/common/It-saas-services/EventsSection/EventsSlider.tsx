@@ -29,7 +29,7 @@ const EventsSlider: React.FC<Props> = ({ events }) => {
     mb-8
   "
 >
-  AntWalk Events for BFSI Industry
+  Peaklyft Events for BFSI Industry
 </h3>
 
 

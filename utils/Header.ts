@@ -11,7 +11,7 @@ export const headerMenu: any[] = [
             title: "Web Development",
             description:
               "We build high-performing, scalable, and secure websites.",
-            href: "/solutions/sales-academy",
+            href: "/solutions/web-development",
             icon: "sales",
           },
           {
