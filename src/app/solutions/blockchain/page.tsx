@@ -59,7 +59,7 @@ export default function SalesAcademyPage() {
         /> */}
                 {/* <ExpertsGrid data={expertsData} /> */}
 
-        <WhatsNewCards data={whatsNewDefaultData2} showHeader={false} />
+        <WhatsNewCards data={whatsNewDefaultData2} />
         
     
       </div>
