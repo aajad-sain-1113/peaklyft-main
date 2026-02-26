@@ -1,4 +1,3 @@
-
 export const headerMenu: any[] = [
   {
     label: "Solution",
@@ -23,22 +22,19 @@ export const headerMenu: any[] = [
           },
           {
             title: "Custom Software Development",
-            description:
-              "From idea to deployment, we develop end-to-end.",
+            description: "From idea to deployment, we develop end-to-end.",
             href: "/solutions/custom-software",
             icon: "web",
           },
           {
             title: "UI/UX Design",
-            description:
-              "Beautiful, intuitive interfaces designed to boost.",
+            description: "Beautiful, intuitive interfaces designed to boost.",
             href: "/solutions/ui-ux-design",
             icon: "design",
           },
           {
             title: "Cloud Engineering",
-            description:
-              "Cloud migration, DevOps, and scalable architectures.",
+            description: "Cloud migration, DevOps, and scalable architectures.",
             href: "/solutions/cloud-engineering",
             icon: "cloud",
           },
@@ -155,10 +151,15 @@ export const headerMenu: any[] = [
         items: [
           {
             title: "About Us",
-            description:
-              "Learn more about our mission to empower workforces",
+            description: "Learn more about our mission to empower workforces",
             href: "/why/about-us",
             icon: "about",
+          },
+          {
+            title: "Portfolio",
+            description: "Learn more about our mission to empower workforces",
+            href: "/why/portfolio",
+            icon: "portfolio",
           },
         ],
       },

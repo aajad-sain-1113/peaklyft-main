@@ -30,6 +30,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "src/components/common/It-saas-services/IndustrySection.tsx"  ],
+, "src/components/common/It-saas-services/IndustrySection.tsx", "src/components/common/portfolioPage"  ],
   "exclude": ["node_modules"]
 }
