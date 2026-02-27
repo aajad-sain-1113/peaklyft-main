@@ -30,7 +30,7 @@ export default function SalesAcademyPage() {
         <AcademyTabs
           title="Explore Customer Software Development Offerings!"
           tabs={salesAcademyTab3}
-          image="/explore.png"
+          image="/success.jpeg"
         />
          
         
